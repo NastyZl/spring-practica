@@ -13,11 +13,16 @@ public class WeatherService {
     public static final String HTTPS_API_TOMORROW = "https://api.tomorrow.io/v4/weather/forecast";
     public static final String KEY = "szsHvk0J5V1gEHj0Pkbz6krkhvszAoov";
     public static final String LOCATION = "42.3478,-71.0466";
-    private RestTemplate restTemplate = new RestTemplate();
-  //  private WeatherResponseMapper weatherResponseMapper;
+    private RestTemplate restTemplate;
+    private WeatherResponseMapper weatherResponseMapper;
+
+    public WeatherService(RestTemplate restTemplate, WeatherResponseMapper weatherResponseMapper) {
+        this.restTemplate = restTemplate;
+        this.weatherResponseMapper = weatherResponseMapper;
+    }
 
     public WeatherResponse weatherResponse() throws JsonProcessingException {
-        WeatherResponseMapper weatherResponseMapper = new WeatherResponseMapper();
+        weatherResponseMapper = new WeatherResponseMapper();
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(HTTPS_API_TOMORROW +
                 "?location=" + LOCATION + "&apikey=" + KEY, String.class);
         return weatherResponseMapper.mapWeatherResponse(responseEntity.getBody());

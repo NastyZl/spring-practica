@@ -1,5 +1,6 @@
 package com.example.demo.mapper;
 
+import com.example.demo.dto.Location;
 import com.example.demo.dto.WeatherResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -18,13 +19,17 @@ public class WeatherResponseMapper {
                 getAverageTemperatures(jsonNode, "daily", "temperatureAvg")
         );
     }
+
     private Double getAverageTemperatures(JsonNode jsonNode, String range, String nodeName) {
         return jsonNode.get("timelines").get(range).findValues(nodeName)
                 .stream()
-                .mapToDouble(a -> Double.parseDouble(a.asText())).average().getAsDouble();
+                .mapToDouble(a -> Double.parseDouble(a.asText())).average().orElse(0.0);
     }
-    private  String getLocation(JsonNode jsonNode) {
-        return jsonNode.get("location").toString();
+
+    private Location getLocation(JsonNode jsonNode) {
+        double LAT = jsonNode.get("location").get("lat").asDouble();
+        double LON = jsonNode.get("location").get("lon").asDouble();
+        return new Location(LAT, LON);
     }
 
 }

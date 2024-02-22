@@ -11,9 +11,6 @@ public class DemoApplication {
 
 	public static void main(String[] args) throws JsonProcessingException {
 		SpringApplication.run(DemoApplication.class, args);
-		WeatherService weatherService = new WeatherService();
-
-		System.out.println(weatherService.weatherResponse());
 	}
 
 }

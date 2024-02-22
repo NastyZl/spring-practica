@@ -1,57 +1,47 @@
 package com.example.demo.dto;
 
 public class WeatherResponse {
-    private String LOCATION;
-    private Double AVERAGE_MIN;
-    private Double AVERAGE_HOUR;
-    private Double AVERAGE_DAY;
+    private Location LOCATION;
+    private double AVERAGE_MINUTELY;
+    private double AVERAGE_HOURLY;
+    private double AVERAGE_DAILY;
 
-    @Override
-    public String toString() {
-        return "WeatherResponse{" +
-                "LOCATION='" + LOCATION + '\'' +
-                ", AVERAGE_MIN=" + AVERAGE_MIN +
-                ", AVERAGE_HOUR=" + AVERAGE_HOUR +
-                ", AVERAGE_DAY=" + AVERAGE_DAY +
-                '}';
-    }
-
-    public WeatherResponse(String LOCATION, Double AVERAGE_MIN, Double AVERAGE_HOUR, Double AVERAGE_DAY) {
+    public WeatherResponse(Location LOCATION, double AVERAGE_MINUTELY, double AVERAGE_HOURLY, double AVERAGE_DAILY) {
         this.LOCATION = LOCATION;
-        this.AVERAGE_MIN = AVERAGE_MIN;
-        this.AVERAGE_HOUR = AVERAGE_HOUR;
-        this.AVERAGE_DAY = AVERAGE_DAY;
+        this.AVERAGE_MINUTELY = AVERAGE_MINUTELY;
+        this.AVERAGE_HOURLY = AVERAGE_HOURLY;
+        this.AVERAGE_DAILY = AVERAGE_DAILY;
     }
 
-    public String getLOCATION() {
+    public Location getLOCATION() {
         return LOCATION;
     }
 
-    public void setLOCATION(String LOCATION) {
+    public void setLOCATION(Location LOCATION) {
         this.LOCATION = LOCATION;
     }
 
-    public Double getAVERAGE_MIN() {
-        return AVERAGE_MIN;
+    public double getAVERAGE_MINUTELY() {
+        return AVERAGE_MINUTELY;
     }
 
-    public void setAVERAGE_MIN(Double AVERAGE_MIN) {
-        this.AVERAGE_MIN = AVERAGE_MIN;
+    public void setAVERAGE_MINUTELY(double AVERAGE_MINUTELY) {
+        this.AVERAGE_MINUTELY = AVERAGE_MINUTELY;
     }
 
-    public Double getAVERAGE_HOUR() {
-        return AVERAGE_HOUR;
+    public double getAVERAGE_HOURLY() {
+        return AVERAGE_HOURLY;
     }
 
-    public void setAVERAGE_HOUR(Double AVERAGE_HOUR) {
-        this.AVERAGE_HOUR = AVERAGE_HOUR;
+    public void setAVERAGE_HOURLY(double AVERAGE_HOURLY) {
+        this.AVERAGE_HOURLY = AVERAGE_HOURLY;
     }
 
-    public Double getAVERAGE_DAY() {
-        return AVERAGE_DAY;
+    public double getAVERAGE_DAILY() {
+        return AVERAGE_DAILY;
     }
 
-    public void setAVERAGE_DAY(Double AVERAGE_DAY) {
-        this.AVERAGE_DAY = AVERAGE_DAY;
+    public void setAVERAGE_DAILY(double AVERAGE_DAILY) {
+        this.AVERAGE_DAILY = AVERAGE_DAILY;
     }
 }
